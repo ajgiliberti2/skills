@@ -17,7 +17,17 @@ A deep module (as opposed to a shallow module) is one which encapsulates a lot o
 
 Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
 
-5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. The PRD should be submitted as a GitHub issue.
+5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. Before submitting, ensure the `ai-generated` label exists in the repo:
+
+```bash
+gh label create "ai-generated" --color "0075ca" --description "Created by a Claude skill" --force
+```
+
+Then submit the PRD as a GitHub issue with the `ai-generated` label:
+
+```bash
+gh issue create --label "ai-generated" --title "..." --body "..."
+```
 
 <prd-template>
 
