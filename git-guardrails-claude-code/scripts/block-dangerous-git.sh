@@ -9,15 +9,33 @@ INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command')
 
 DANGEROUS_PATTERNS=(
+  # Push
   "git push"
+  "push --force"
+
+  # Reset
   "git reset --hard"
+  "reset --hard"
+
+  # Rebase
+  "git rebase"
+
+  # Clean
   "git clean -fd"
   "git clean -f"
+
+  # Branch / tag / remote
   "git branch -D"
+  "git tag -d"
+  "git remote remove"
+
+  # Working tree restore
   "git checkout \."
   "git restore \."
-  "push --force"
-  "reset --hard"
+
+  # Stash destruction
+  "git stash drop"
+  "git stash clear"
 )
 
 for pattern in "${DANGEROUS_PATTERNS[@]}"; do
