@@ -51,7 +51,13 @@ Iterate until the user approves the breakdown.
 
 ### 5. Create the GitHub issues
 
-For each approved slice, create a GitHub issue using `gh issue create`. Use the issue body template below.
+Before creating any issues, ensure the `ai-generated` label exists in the repo:
+
+```bash
+gh label create "ai-generated" --color "0075ca" --description "Created by a Claude skill" --force
+```
+
+For each approved slice, create a GitHub issue using `gh issue create --label "ai-generated"`. Use the issue body template below.
 
 Create issues in dependency order (blockers first) so you can reference real issue numbers in the "Blocked by" field.
 
