@@ -56,7 +56,13 @@ Rules:
 
 ### 5. Create the GitHub issue
 
-Create a GitHub issue using `gh issue create` with the template below. Do NOT ask the user to review before creating - just create it and share the URL.
+Before creating the issue, ensure the `ai-generated` label exists in the repo:
+
+```bash
+gh label create "ai-generated" --color "0075ca" --description "Created by a Claude skill" --force
+```
+
+Create the issue using `gh issue create` with the `ai-generated` label. Do NOT ask the user to review before creating - just create it and share the URL.
 
 <issue-template>
 
@@ -98,5 +104,9 @@ A numbered list of RED-GREEN cycles:
 - [ ] Existing tests still pass
 
 </issue-template>
+
+```bash
+gh issue create --label "ai-generated" --title "..." --body "..."
+```
 
 After creating the issue, print the issue URL and a one-line summary of the root cause.
